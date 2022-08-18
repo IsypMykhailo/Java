@@ -8,29 +8,32 @@ import phoneBook.PhoneBook;
 import work.MyFirstWork;
 
 public class Main {
-    public static void main(String[] args){
-        Object s = new Contact();
-        // s.hashCode();
-        // s.toString();
-        // s.equals();
-        System.out.println(s.getClass());
-        if(s instanceof Contact)
-            ((Contact)s).setName("Sasha");
+    public static void main(String[] args) throws CloneNotSupportedException {
 
-        System.out.println(s);
+        // Main.mainCloneable(args);
 
-        Object d = new PhoneBook();
-        if(d instanceof Contact)
-            ((Contact) d).setName("Sasha");
-        else {
-            System.out.println("err");
-        }
-
-        try{
-            ((Contact) d).setName("Sasha");
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+//        Object s = new Contact();
+//        // s.hashCode();
+//        // s.toString();
+//        // s.equals();
+//        System.out.println(s.getClass());
+//        if(s instanceof Contact)
+//            ((Contact)s).setName("Sasha");
+//
+//        System.out.println(s);
+//
+//        Object d = new PhoneBook();
+//        if(d instanceof Contact)
+//            ((Contact) d).setName("Sasha");
+//        else {
+//            System.out.println("err");
+//        }
+//
+//        try{
+//            ((Contact) d).setName("Sasha");
+//        } catch (Exception ex) {
+//            System.out.println(ex.getMessage());
+//        }
     }
 
     public static void mainCloneable(String[] args) throws CloneNotSupportedException {
