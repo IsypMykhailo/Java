@@ -8,6 +8,8 @@ public class Main {
 
     private static Scanner in = new Scanner(System.in);
 
+    private static Random rnd = new Random();
+
     public static void main(String[] args) throws Exception {
         // printJobs();
         // calcPercent();
@@ -18,13 +20,16 @@ public class Main {
         // oddRange();
         // multiplicationTable();
         // arrayStats();
+        // arrOperations();
+        // drawSymbolLine();
+        // sortArr();
     }
 
-    public static void printJobs(){
+    private static void printJobs(){
         System.out.println("\"Your time is limited,\n\tso don't waste it\n\t\tliving someone else's life\"\n\t\t\tSteve Jobs");
     }
 
-    public static void calcPercent(){
+    private static void calcPercent(){
         try {
             double a;
             double b;
@@ -43,7 +48,7 @@ public class Main {
         }
     }
 
-    public static void formNumber(){
+    private static void formNumber(){
         try {
             int a, b, c;
             //Scanner in = new Scanner(System.in);
@@ -64,7 +69,7 @@ public class Main {
         }
     }
 
-    public static void replaceNum(){
+    private static void replaceNum(){
         try {
             int num;
             //Scanner in = new Scanner(System.in);
@@ -89,7 +94,7 @@ public class Main {
         }
     }
 
-    public static void month(){
+    private static void month(){
         try{
             int num;
             //Scanner in = new Scanner(System.in);
@@ -111,7 +116,7 @@ public class Main {
         }
     }
 
-    public static void convertMeters(){
+    private static void convertMeters(){
         try {
             float meter;
             //Scanner in = new Scanner(System.in);
@@ -134,7 +139,7 @@ public class Main {
         }
     }
 
-    public static void oddRange(){
+    private static void oddRange(){
         try{
             int a, b;
             //Scanner in = new Scanner(System.in);
@@ -174,7 +179,7 @@ public class Main {
         }
     }
 
-    public static void multiplicationTable(){
+    private static void multiplicationTable(){
         try{
             int a, b;
             System.out.print("Enter first number: ");
@@ -192,27 +197,30 @@ public class Main {
         }
     }
 
-    public static void arrayStats(){
-        Random rnd = new Random();
-        int arr[] = new int[100];
-        int positive = 0;
-        int negative = 0;
-        int zeros = 0;
-        for(int i:arr){
-            arr[i] = rnd.nextInt();
-            if(arr[i] < 0){
-                negative++;
-            } else if (arr[i] == 0) {
-                zeros++;
-            } else if (arr[i] > 0) {
-                positive++;
+    private static void arrayStats(){
+        try {
+            int[] arr = new int[100];
+            int positive = 0;
+            int negative = 0;
+            int zeros = 0;
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = rnd.nextInt();
+                if (arr[i] < 0) {
+                    negative++;
+                } else if (arr[i] == 0) {
+                    zeros++;
+                } else if (arr[i] > 0) {
+                    positive++;
+                }
             }
+            System.out.println("Min: " + getMin(arr));
+            System.out.println("Max: " + getMax(arr));
+            System.out.println("Negative nums: " + negative);
+            System.out.println("Positive nums: " + positive);
+            System.out.println("Zero nums: " + zeros);
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
         }
-        System.out.println("Min: " + getMin(arr));
-        System.out.println("Max: " + getMax(arr));
-        System.out.println("Negative nums: " + negative);
-        System.out.println("Positive nums: " + positive);
-        System.out.println("Zero nums: " + zeros);
     }
 
     public static int getMax(int[] array){
@@ -231,5 +239,161 @@ public class Main {
                 min = array[i];
         }
         return min;
+    }
+
+    private static void arrOperations(){
+        try {
+            int[] arr = new int[100];
+            int[] even = new int[100];
+            int[] odd = new int[100];
+            int[] positive = new int[100];
+            int[] negative = new int[100];
+            for (int i = 0; i < arr.length; i++) {
+                arr[i] = rnd.nextInt();
+                if (arr[i] % 2 == 0) {
+                    even[i] = arr[i];
+                } else if (arr[i] % 2 != 0) {
+                    odd[i] = arr[i];
+                }
+
+                if (arr[i] < 0) {
+                    negative[i] = arr[i];
+                } else if (arr[i] > 0) {
+                    positive[i] = arr[i];
+                }
+            }
+
+            even = cutArr(even);
+            System.out.println("----- Even elements -----");
+            for (int i = 0; i < even.length; i++) {
+                System.out.println(even[i]);
+            }
+            System.out.println("-------------------------");
+
+            odd = cutArr(odd);
+            System.out.println("----- Odd elements -----");
+            for (int i = 0; i < odd.length; i++) {
+                System.out.println(odd[i]);
+            }
+            System.out.println("------------------------");
+
+            positive = cutArr(positive);
+            System.out.println("----- Positive elements -----");
+            for (int i = 0; i < positive.length; i++) {
+                System.out.println(positive[i]);
+            }
+            System.out.println("-----------------------------");
+
+            negative = cutArr(negative);
+            System.out.println("----- Negative elements -----");
+            for (int i = 0; i < negative.length; i++) {
+                System.out.println(negative[i]);
+            }
+            System.out.println("-----------------------------");
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static int[] cutArr(int[] array){
+        int j = 0;
+        for( int i=0;  i<array.length;  i++ )
+        {
+            if (array[i] != 0)
+                array[j++] = array[i];
+        }
+        int [] newArray = new int[j];
+        System.arraycopy( array, 0, newArray, 0, j );
+        return newArray;
+    }
+
+    private static void drawSymbolLine(){
+        try {
+            char symbol;
+            int length;
+            String direction;
+
+            System.out.print("Enter symbol: ");
+            symbol = in.nextLine().charAt(0);
+
+            System.out.print("Enter length: ");
+            length = in.nextInt();
+            if (length <= 0) {
+                throw new Exception("Invalid length");
+            }
+
+            System.out.print("Enter direction: ");
+            direction = in.next();
+            if(direction.equals("vertical")){
+                char[] arr = new char[length];
+                for(int i = 0; i < arr.length; i++){
+                    arr[i] = symbol;
+                    System.out.println(arr[i]);
+                }
+            } else if (direction.equals("horizontal")) {
+                char[] arr = new char[length];
+                for(int i = 0; i < arr.length; i++){
+                    arr[i] = symbol;
+                    System.out.print(arr[i]);
+                }
+            } else {
+                throw new Exception("Invalid direction");
+            }
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static void sortArr(){
+        try {
+            int[] arr = {5, 3, 13, 9, 35, 2, 19};
+            String mode;
+            System.out.print("How do you want the array to be sorted: ");
+            mode = in.next();
+            switch (mode) {
+                case "ascending":
+                    for (int i = 0; i < arr.length; i++) {
+                        int min = arr[i];
+                        int min_i = i;
+                        for (int j = i + 1; j < arr.length; j++) {
+                            if (arr[j] < min) {
+                                min = arr[j];
+                                min_i = j;
+                            }
+                        }
+                        if (i != min_i) {
+                            int tmp = arr[i];
+                            arr[i] = arr[min_i];
+                            arr[min_i] = tmp;
+                        }
+                    }
+                    break;
+                case "descending":
+                    for (int i = 0; i < arr.length; i++) {
+                        int max = arr[i];
+                        int max_i = i;
+                        for (int j = i + 1; j < arr.length; j++) {
+                            if (arr[j] > max) {
+                                max = arr[j];
+                                max_i = j;
+                            }
+                        }
+                        if (i != max_i) {
+                            int tmp = arr[i];
+                            arr[i] = arr[max_i];
+                            arr[max_i] = tmp;
+                        }
+                    }
+                    break;
+                default:
+                    throw new Exception("Invalid mode");
+            }
+
+            for (int i = 0; i < arr.length; i++) {
+                System.out.println(arr[i]);
+            }
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
     }
 }
