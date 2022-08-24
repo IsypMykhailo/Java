@@ -1,8 +1,12 @@
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
     private static int num;
+
+    private static Scanner in = new Scanner(System.in);
 
     public static void main(String[] args) throws Exception {
         // printJobs();
@@ -12,6 +16,8 @@ public class Main {
         // month();
         // convertMeters();
         // oddRange();
+        // multiplicationTable();
+        // arrayStats();
     }
 
     public static void printJobs(){
@@ -20,16 +26,16 @@ public class Main {
 
     public static void calcPercent(){
         try {
-            int a;
-            int b;
+            double a;
+            double b;
 
-            Scanner in = new Scanner(System.in);
+            //Scanner in = new Scanner(System.in);
 
             System.out.println("Enter number: ");
-            a = in.nextInt();
+            a = in.nextDouble();
 
             System.out.println("Enter percent: ");
-            b = in.nextInt();
+            b = in.nextDouble();
 
             System.out.println(a*b/100);
         } catch(Exception ex){
@@ -40,7 +46,7 @@ public class Main {
     public static void formNumber(){
         try {
             int a, b, c;
-            Scanner in = new Scanner(System.in);
+            //Scanner in = new Scanner(System.in);
             System.out.print("Enter first num: ");
             a = in.nextInt();
 
@@ -61,7 +67,7 @@ public class Main {
     public static void replaceNum(){
         try {
             int num;
-            Scanner in = new Scanner(System.in);
+            //Scanner in = new Scanner(System.in);
             System.out.print("Enter a six-digit number: ");
             num = in.nextInt();
 
@@ -86,7 +92,7 @@ public class Main {
     public static void month(){
         try{
             int num;
-            Scanner in = new Scanner(System.in);
+            //Scanner in = new Scanner(System.in);
             System.out.print("Enter the number of the month: ");
             num = in.nextInt();
             if(num == 1 || num == 2 || num == 12){
@@ -108,7 +114,7 @@ public class Main {
     public static void convertMeters(){
         try {
             float meter;
-            Scanner in = new Scanner(System.in);
+            //Scanner in = new Scanner(System.in);
             System.out.print("Enter length in meters: ");
             meter = in.nextFloat();
             String resultType;
@@ -131,7 +137,7 @@ public class Main {
     public static void oddRange(){
         try{
             int a, b;
-            Scanner in = new Scanner(System.in);
+            //Scanner in = new Scanner(System.in);
 
             System.out.print("Enter lower bound: ");
             a = in.nextInt();
@@ -166,5 +172,64 @@ public class Main {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    public static void multiplicationTable(){
+        try{
+            int a, b;
+            System.out.print("Enter first number: ");
+            a = in.nextInt();
+            System.out.print("Enter second number: ");
+            b = in.nextInt();
+            for(int i = a; i <= b; i++) {
+                for (int j = 1; j <= 10; j++) {
+                    System.out.print(i + " * " + j + " = " + i * j + " ");
+                }
+                System.out.println("");
+            }
+        } catch (Exception ex){
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public static void arrayStats(){
+        Random rnd = new Random();
+        int arr[] = new int[100];
+        int positive = 0;
+        int negative = 0;
+        int zeros = 0;
+        for(int i:arr){
+            arr[i] = rnd.nextInt();
+            if(arr[i] < 0){
+                negative++;
+            } else if (arr[i] == 0) {
+                zeros++;
+            } else if (arr[i] > 0) {
+                positive++;
+            }
+        }
+        System.out.println("Min: " + getMin(arr));
+        System.out.println("Max: " + getMax(arr));
+        System.out.println("Negative nums: " + negative);
+        System.out.println("Positive nums: " + positive);
+        System.out.println("Zero nums: " + zeros);
+    }
+
+    public static int getMax(int[] array){
+        int max = array[0];
+        for(int i=0; i<array.length; i++){
+            if(array[i] > max)
+                max = array[i];
+        }
+        return max;
+    }
+
+    public static int getMin(int[] array){
+        int min = array[0];
+        for(int i=0; i < array.length; i++){
+            if(array[i] < min)
+                min = array[i];
+        }
+        return min;
     }
 }
