@@ -6,13 +6,21 @@ import java.io.*;
 
 public class StandartSerializable implements Runnable{
 
-    void jsonSerializable () throws IOException {
+    void jsonSerialize () throws IOException {
         JsonPerson j = new JsonPerson("Misha",17,183,false);
-        StringWriter writer = new StringWriter();
+        //StringWriter writer = new StringWriter();
+        File f = new File("jsonSerializable.json");
         ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(writer, j);
-        String result = writer.toString();
-        System.out.println(result);
+        mapper.writeValue(f, j);
+        //String result = writer.toString();
+        //System.out.println(result);
+    }
+
+    void jsonDeserialize () throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        File f = new File("jsonSerializable.json");
+        JsonPerson j = mapper.readValue(f,JsonPerson.class);
+        System.out.println(j.toString());
     }
 
     void simpleSerializable () {
@@ -41,7 +49,8 @@ public class StandartSerializable implements Runnable{
     @Override
     public void run() {
         try{
-            jsonSerializable();
+            jsonSerialize();
+            jsonDeserialize();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
