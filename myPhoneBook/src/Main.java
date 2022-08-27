@@ -1,13 +1,14 @@
+import fileOperations.SimpleFile;
+import fileSerializable.StandartSerializable;
 import phoneBook.PhoneBookView;
 
 public class Main {
     public static void main(String[] args) {
-
-        //PhoneBookView v = new PhoneBookView();
-        //v.run();
-
-        MyFirstOperation op = new MyFirstOperation();
-        op.run();
-
+        try {
+            StandartSerializable w = new StandartSerializable();
+            w.run();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
     }
 }
