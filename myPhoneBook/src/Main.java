@@ -1,3 +1,4 @@
+import MyStream.Base.BaseStream;
 import MyThreads.MyExchanger.WorkExchanger;
 import MyThreads.MyMainThread;
 import MyThreads.MySemaphore.MySemaphoreWork;
@@ -9,8 +10,8 @@ import phoneBook.PhoneBookView;
 
 public class Main {
     public static void main(String[] args) {
-        WorkExchanger work = new WorkExchanger();
-        work.run();
+        BaseStream b = new BaseStream();
+        b.run();
 
         System.out.println("\n\n -- Main finish \n -- \n\n");
     }
