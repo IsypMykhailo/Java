@@ -1,5 +1,5 @@
-import task1.FileComparerView;
-import task2.LongestLine;
+import task3.ArrayFromFile;
+import task4.PutToFile;
 
 public class Main {
     public static void main(String[] args) {
@@ -9,7 +9,10 @@ public class Main {
 //        LongestLine l = new LongestLine();
 //        l.run();
 
-        ArrayFromFile a = new ArrayFromFile();
-        a.run();
+//        ArrayFromFile a = new ArrayFromFile();
+//        a.run();
+
+        PutToFile ptf = new PutToFile();
+        ptf.run();
     }
 }

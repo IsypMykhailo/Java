@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ad6b16b2-8b58-4f8e-a74f-733f04b68504" name="Changes" comment="files" />
+    <list default="true" id="ad6b16b2-8b58-4f8e-a74f-733f04b68504" name="Changes" comment="files">
+      <change afterPath="$PROJECT_DIR$/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/putToFile.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/task4/PutToFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../net/client/.idea/jpa-buddy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../net/server/.idea/jpa-buddy.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ArrayFromFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/task3/ArrayFromFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../net/client/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../net/client/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../net/server/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../net/server/.idea/misc.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -36,7 +49,9 @@
     "Repository.Attach.Sources": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false"
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "D:/ПРОГРАММИРОВАНИЕ/Программирование/Java/Homework/home_27_08"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -54,6 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1662171937655</updated>
       <workItem from="1662171938825" duration="7275000" />
+      <workItem from="1662863063759" duration="3384000" />
     </task>
     <task id="LOCAL-00001" summary="files">
       <created>1662188638278</created>

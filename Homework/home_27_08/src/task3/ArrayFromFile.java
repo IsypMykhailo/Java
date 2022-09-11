@@ -1,3 +1,5 @@
+package task3;
+
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,16 +35,25 @@ public class ArrayFromFile implements Runnable{
             }
 
             int[][] intArrays = new int[arrays.length][maxLength];
+            ArrayList<Integer> tmp = new ArrayList<Integer>();
             for(int i=0; i<arrays.length; i++){
                 for (int j = 0; j < arrays[i].length; j++) {
                     intArrays[i][j] = Integer.parseInt(arrays[i][j]);
+                    tmp.add(Integer.parseInt(arrays[i][j]));
                 }
+            }
+            int[] overallArray = new int[tmp.size()];
+            for(int i=0; i<overallArray.length; i++){
+                overallArray[i] = tmp.get(i);
             }
 
             for(int i=0; i< arrays.length; i++){
-                int [] cutIntArr = cutArr(intArrays[i]);
-                System.out.println("Max: " + getMax(cutIntArr) + " Min: " + getMin(cutIntArr) + " Sum: " + getSum(cutIntArr));
+                System.out.println("Max: " + getMax(overallArray) + " Min: " + getMin(overallArray) + " Sum: " + getSum(overallArray));
             }
+
+            System.out.println("\n----- Overall -----");
+            int[] cutOverall = cutArr(overallArray);
+            System.out.println("Max: " + getMax(cutOverall) + " Min: " + getMin(cutOverall) + " Sum: " + getSum(cutOverall));
         } catch (Exception ex){
             System.out.println(ex.getMessage());
         }
