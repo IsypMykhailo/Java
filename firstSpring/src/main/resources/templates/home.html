@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Welcome Spring </h1>
+<p> This page opens: <span th:text="${count}" /> </p>
+
+<hr>
+
+<h3> Each Array: </h3>
+<ul th:each="el: ${arr}">
+    <li th:text="${el}"></li>
+</ul>
+<img src="/img/slider/post1.webp" width="300">
+</body>
+</html>
