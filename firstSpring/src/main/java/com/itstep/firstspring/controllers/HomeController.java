@@ -14,7 +14,7 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("/") // Маршрут, по которому будет отвечать данный метод котроллера
+    @GetMapping("/home") // Маршрут, по которому будет отвечать данный метод котроллера
     public String home(
             Model model // Модель представления данных, которую мне нужно наполнять
             // Это аналог ViewData ViewBug из ASP
