@@ -2,10 +2,9 @@ package com.itstep.firstspring.controllers;
 
 import com.itstep.firstspring.entities.SiteContact;
 import com.itstep.firstspring.repos.SiteContactRepository;
-import org.springframework.lang.Nullable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Optional;
 
 @RestController
 public class ContactFormController {
@@ -16,6 +15,11 @@ public class ContactFormController {
         this.contactRepository = contactRepository;
     }
 
+    /**
+     * Создание записи в базе данных -- Create
+     * @param siteContact
+     * @return
+     */
     @PostMapping("/contact")
     public String sendContact(
             SiteContact siteContact // На основе параметров запроса я могу сразу создать сущность
@@ -34,5 +38,49 @@ public class ContactFormController {
 //                + email + " "
 //                + phone + " "
 //                + message;
+    }
+
+    /**
+     * Чтение всех записей -- Read
+     * @return
+     */
+    @GetMapping("/contacts")
+    public Iterable<SiteContact> readAll(){
+        return contactRepository.findAll();
+    }
+
+    /**
+     * Чтение записей по id -- Read
+     * @return
+     */
+    @GetMapping("/contacts/{id}")
+    public Optional<SiteContact> readById(
+            @PathVariable(name="id") Long id
+    ){
+        return contactRepository.findById(id);
+    }
+
+    /**
+     * Удаление записи по Id -- Delete
+     * @param id
+     */
+    @DeleteMapping("/contacts/{id}")
+    public void deleteById(
+            @PathVariable(name="id") Long id
+    ){
+        contactRepository.deleteById(id);
+    }
+
+    /**
+     * Обновление записи в базе данных по её Id -- Update
+     * @param id
+     * @param siteContact
+     */
+    @PutMapping("/contacts/{id}")
+    public void updateById(
+            @PathVariable(name="id") Long id,
+            SiteContact siteContact
+    ) {
+        contactRepository.save(siteContact);
     }
 }
