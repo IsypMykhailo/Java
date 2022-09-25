@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1> Edit </h1>
+<form action="/category/store" method="post">
+  <span th:text="${category.name}"></span>
+  <input type="hidden" name="id" th:field="${category.id}">
+  <input type="text" name="name" th:field="${category.name}">
+  <input type="submit" value="Create">
+</form>
+</body>
+</html>

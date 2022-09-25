@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Categories</title>
+</head>
+<body>
+<h1> All Categories </h1>
+<a href="/category/create"> Add </a>
+
+<ul th:each="c: ${categories}">
+  <li>
+    <span th:text="${c.name}"></span><br>
+    <hr>
+    <a th:href="@{/category/edit/{id}/(id=${c.id})}"> edit  </a>
+    <a th:href="@{|/category/edit/${c.id}|}">edit 2 </a>
+    |
+    <a th:href="@{|/category/delete/${c.id}|}">delete </a>
+    <br>
+    <span th:text="${c.id}"></span>
+  </li>
+</ul>
+</body>
+</html>

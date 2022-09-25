@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> All Tags </title>
+</head>
+<body>
+<h1> All Tags </h1>
+<a href="/tag/create"> Add </a>
+
+<ul th:each="t: ${tags}">
+    <li>
+        <span th:text="${t.name}"></span><br>
+        <hr>
+        <a th:href="@{/tag/edit/{id}/(id=${t.id})}"> edit  </a>
+        <a th:href="@{|/tag/edit/${t.id}|}">edit 2 </a>
+        |
+        <a th:href="@{|/tag/delete/${t.id}|}">delete </a>
+        <br>
+        <span th:text="${t.id}"></span>
+    </li>
+</ul>
+</body>
+</html>
