@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<h1>Edit </h1>
+<form action="/portfolio/store" method="post">
+  <span th:text="${portfolio.name}"></span>
+  <input type="hidden" name="id" th:field="${portfolio.id}" >
+  <input type="text" name="name" th:field="${portfolio.name}" >
+  <input type="submit" value="Create">
+</form>
+
+</body>
+</html>

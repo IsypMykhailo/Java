@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+<form action="/portfolio/store" method="post">
+
+  <input type="text" name="name"><br>
+  <select name="category_id">
+    <option
+            th:each="category: ${categories}"
+            th:value="${category.id}"
+            th:text="${category.name}"></option>
+  </select><br>
+
+  <select name="tags_id" multiple>
+    <option
+            th:each="tag: ${tags}"
+            th:value="${tag.id}"
+            th:text="${tag.name}"></option>
+  </select><br>
+
+  <input type="submit" value="Create">
+</form>
+
+</body>
+</html>
