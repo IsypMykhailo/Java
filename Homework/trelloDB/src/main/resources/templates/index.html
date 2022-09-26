@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Users</title>
+</head>
+<body>
+<h1> All Users </h1>
+<a href="/user/create"> Add </a>
+
+<ul th:each="p: ${users}">
+    <li>
+        <span th:text="${p.name}"></span><br>
+        <br>
+
+
+        <hr>
+        <a th:href="@{/user/edit/{id}/(id=${p.id})}"> edit  </a>
+        <a th:href="@{|/user/edit/${p.id}|}">edit 2 </a>
+        |
+        <a th:href="@{|/user/delete/${p.id}|}">delete </a>
+        <br>
+        <span th:text="${p.id}"></span>
+
+    </li>
+</ul>
+
+</body>
+</html>

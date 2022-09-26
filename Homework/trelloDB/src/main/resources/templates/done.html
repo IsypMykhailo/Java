@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Dones</title>
+</head>
+<body>
+<h1> All Dones </h1>
+<a href="/done/create"> Add </a>
+
+<ul th:each="p: ${dones}">
+    <li>
+        <span th:text="${p.text}"></span><br>
+        <span>User:</span><span th:text="${p.user.name}"></span>
+        <br>
+
+
+        <hr>
+        <a th:href="@{/done/edit/{id}/(id=${p.id})}"> edit  </a>
+        <a th:href="@{|/done/edit/${p.id}|}">edit 2 </a>
+        |
+        <a th:href="@{|/done/delete/${p.id}|}">delete </a>
+        <br>
+        <span th:text="${p.id}"></span>
+
+    </li>
+</ul>
+
+</body>
+</html>

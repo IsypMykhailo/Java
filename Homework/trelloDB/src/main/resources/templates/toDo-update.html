@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="uk" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Edit </h1>
+<form action="/todo/store" method="post">
+    <span th:text="${todo.text}"></span>
+    <input type="hidden" name="id" th:field="${todo.id}" >
+    <input type="text" name="text" th:field="${todo.text}" >
+    <input type="submit" value="Create">
+</form>
+
+</body>
+</html>
