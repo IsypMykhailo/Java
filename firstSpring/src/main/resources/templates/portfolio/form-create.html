@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="/portfolio/store" method="post">
+<form action="/portfolio/store" method="post" enctype="multipart/form-data">
 
   <input type="text" name="name"><br>
   <select name="category_id">
@@ -22,7 +22,7 @@
             th:value="${tag.id}"
             th:text="${tag.name}"></option>
   </select><br>
-
+  <input type="file" name="main_img"><br>
   <input type="submit" value="Create">
 </form>
 

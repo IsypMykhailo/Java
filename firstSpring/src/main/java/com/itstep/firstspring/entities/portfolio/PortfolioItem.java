@@ -3,6 +3,7 @@ package com.itstep.firstspring.entities.portfolio;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
+import org.springframework.context.annotation.Bean;
 
 import javax.persistence.*;
 import java.util.Date;
