@@ -22,21 +22,32 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileSystemStorageService implements StorageService {
 
     private final Path rootLocation;
+    private final Path avatarLocation;
 
     @Autowired
     public FileSystemStorageService(StorageProperties properties) {
-        this.rootLocation = Paths.get(properties.getLocation());
+        this.rootLocation = Paths.get(properties.getLocation()+"/store/default/");
+        this.avatarLocation = Paths.get(properties.getLocation()+"/store/avatars/");
     }
 
     @Override
-    public void store(MultipartFile file) {
+    public void store(MultipartFile file, String fileType) {
         try {
             if (file.isEmpty()) {
                 throw new StorageException("Failed to store empty file.");
             }
-            Path destinationFile = this.rootLocation.resolve(
-                            Paths.get(file.getOriginalFilename()))
-                    .normalize().toAbsolutePath();
+            Path destinationFile = null;
+            switch (fileType) {
+                case "Default":
+                    destinationFile = this.rootLocation.resolve(
+                                    Paths.get(file.getOriginalFilename()))
+                            .normalize().toAbsolutePath();
+                    break;
+                case "avatar":
+                    destinationFile = this.avatarLocation.resolve(
+                                    Paths.get(file.getOriginalFilename()))
+                            .normalize().toAbsolutePath();
+            }
             if (!destinationFile.getParent().equals(this.rootLocation.toAbsolutePath())) {
                 // This is a security check
                 throw new StorageException(

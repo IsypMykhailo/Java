@@ -72,12 +72,15 @@ public class PortfolioItemController {
     public RedirectView store(
             @Param("category_id") long category_id,
             @Param("tags_id") long[] tags_id,
-            @RequestParam("main_img") MultipartFile mainImg,
+            @RequestPart("main_img") MultipartFile mainImg,
+            @RequestPart("avatar") MultipartFile avatar,
             PortfolioItem portfolio
     ){
-        storageService.store(mainImg);
+        storageService.store(mainImg, "Default");
+        storageService.store(avatar, "avatar");
         portfolio.setCategory(categoryRepository.findById(category_id).get());
         portfolio.setMainImg(StringUtils.cleanPath(mainImg.getOriginalFilename()));
+        portfolio.setAvatar(StringUtils.cleanPath(avatar.getOriginalFilename()));
         itemRepository.save(portfolio);
 
         // ArrayList<PortfolioTag> tags = new ArrayList<>();

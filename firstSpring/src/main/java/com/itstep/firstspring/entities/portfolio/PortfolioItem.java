@@ -44,6 +44,7 @@ public class PortfolioItem {
 
     private String name; // Наименование работы
     private String mainImg; // Ссылка на главное изображение
+    private String avatar; // Ссылка на аватар
     @Column(columnDefinition="TEXT")
     private String description; // Опсиание работы
     private Integer price; // Стоимость
