@@ -4,6 +4,9 @@ package com.itstep.firstspring.controllers;
 import com.itstep.firstspring.exceptions.storage.StorageFileNotFoundException;
 import com.itstep.firstspring.services.storage.StorageService;
 
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
@@ -26,6 +29,8 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.imageio.ImageIO;
+
 @Controller
 public class FileUploadController {
 
@@ -34,6 +39,21 @@ public class FileUploadController {
     @Autowired
     public FileUploadController(StorageService storageService) {
         this.storageService = storageService;
+    }
+
+    @GetMapping("/test_webp")
+    public String convertTest(){
+        try{
+            BufferedImage image = ImageIO.read(new File("D:/upload-dir/sample.jpg"));
+            BufferedImage resizedImage = new BufferedImage(100,100,BufferedImage.TYPE_INT_RGB);
+            Graphics2D graphics2D = resizedImage.createGraphics();
+            graphics2D.drawImage(image,0,0,100,100,null);
+            graphics2D.dispose();
+            ImageIO.write(image, "webp", new File("D:/upload-dir/sample.webp"));
+        } catch (Exception ex){
+            return ex.getMessage();
+        }
+        return "Ok";
     }
 
     @GetMapping("/files")
@@ -52,6 +72,7 @@ public class FileUploadController {
     public ResponseEntity<Resource> serveFile(@PathVariable String filename) {
 
         Resource file = storageService.loadAsResource(filename);
+        //WebpEncoder.encode(originalNameFilePath, webpImageFilePath);
         return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION,
                 "attachment; filename=\"" + file.getFilename() + "\"").body(file);
     }
