@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="/resources/css/style.css">
+</head>
+<body>
+<div>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>UserName</th>
+        <th>Password</th>
+        <th>Roles</th>
+        </thead>
+        <tbody th:each="user: ${allUsers}" var="user">
+            <tr>
+                <td th:text="${user.id}"></td>
+                <td th:text="${user.username}"></td>
+                <td th:text="${user.password}"></td>
+                <td>
+                    <div th:each="role: ${user.roles}" var="role"><span th:text="${role.name}">;</span></div>
+                </td>
+                <td>
+                    <form action="${pageContext.request.contextPath}/admin" method="post">
+                        <input type="hidden" name="userId" th:value="${user.id}"/>
+                        <input type="hidden" name="action" th:value="delete"/>
+                        <button type="submit">Delete</button>
+                    </form>
+
+                </td>
+
+            </tr>
+        </tbody>
+    </table>
+    <a href="/">Главная</a>
+</div>
+</body>
+</html>

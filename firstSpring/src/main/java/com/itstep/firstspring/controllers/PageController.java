@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class PageController {
     @GetMapping("/")
     public String index(){
-        return "index.jsp";
+        return "pages/index";
     }
     @GetMapping("/about")
     public String about(){
