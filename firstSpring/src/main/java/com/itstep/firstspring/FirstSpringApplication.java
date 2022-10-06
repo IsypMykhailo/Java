@@ -1,5 +1,6 @@
 package com.itstep.firstspring;
 
+import com.itstep.firstspring.services.UserService;
 import com.itstep.firstspring.services.storage.StorageProperties;
 import com.itstep.firstspring.services.storage.StorageService;
 import org.springframework.boot.CommandLineRunner;
@@ -23,4 +24,12 @@ public class FirstSpringApplication {
             storageService.init();
         };
     }
+
+    /*@Bean
+    CommandLineRunner init(UserService userService) {
+        return (args) -> {
+            //storageService.deleteAll();
+            userService.init();
+        };
+    }*/
 }
