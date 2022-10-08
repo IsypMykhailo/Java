@@ -6,6 +6,23 @@
       <excludeFolder url="file://$MODULE_DIR$/_01_welcome/out" />
       <excludeFolder url="file://$MODULE_DIR$/Homework/home_16_08/out" />
       <excludeFolder url="file://$MODULE_DIR$/myCollections/out" />
+      <excludeFolder url="file://$MODULE_DIR$/activitar/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/activitar/target" />
+      <excludeFolder url="file://$MODULE_DIR$/firstSpring/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/firstSpring/target" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/home_17_08/out" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/home_23_08/out" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/home_23_08_2/out" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/home_24_08/out" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/home_27_08/out" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/trelloDB/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/Homework/trelloDB/target" />
+      <excludeFolder url="file://$MODULE_DIR$/myPhoneBook/out" />
+      <excludeFolder url="file://$MODULE_DIR$/myspring/.idea" />
+      <excludeFolder url="file://$MODULE_DIR$/myspring/target" />
+      <excludeFolder url="file://$MODULE_DIR$/net/client/out" />
+      <excludeFolder url="file://$MODULE_DIR$/net/server/out" />
+      <excludeFolder url="file://$MODULE_DIR$/spring-reg-auth/.idea" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
