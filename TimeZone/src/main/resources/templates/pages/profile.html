@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zxx" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>Watch shop | eCommers</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!--<link rel="manifest" href="site.webmanifest">-->
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicon.ico">
+
+  <!-- CSS here -->
+  <link rel="stylesheet" href="/assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="/assets/css/flaticon.css">
+  <link rel="stylesheet" href="/assets/css/slicknav.css">
+  <link rel="stylesheet" href="/assets/css/animate.min.css">
+  <link rel="stylesheet" href="/assets/css/magnific-popup.css">
+  <link rel="stylesheet" href="/assets/css/fontawesome-all.min.css">
+  <link rel="stylesheet" href="/assets/css/themify-icons.css">
+  <link rel="stylesheet" href="/assets/css/slick.css">
+  <link rel="stylesheet" href="/assets/css/nice-select.css">
+  <link rel="stylesheet" href="/assets/css/style.css">
+</head>
+<body>
+<!--? Preloader Start -->
+<div id="preloader-active">
+  <div class="preloader d-flex align-items-center justify-content-center">
+    <div class="preloader-inner position-relative">
+      <div class="preloader-circle"></div>
+      <div class="preloader-img pere-text">
+        <img src="/assets/img/logo/logo.png" alt="">
+      </div>
+    </div>
+  </div>
+</div>
+<div th:include="header :: menu"></div>
+<div class="section-top-border">
+  <div class="row">
+    <div class="col-lg-3 col-md-3"></div>
+    <div class="col-lg-6 col-md-6">
+      <h3 class="mb-30">Profile</h3>
+      <form th:action="@{'/changeProfile/' + ${user.username}}" method="post">
+        <div class="mt-10">
+          <input type="text" name="name" th:value="${user.name}" placeholder="Full Name"
+                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Full Name'" required
+                 class="single-input" >
+        </div>
+        <div class="mt-10">
+          <input type="email" name="email" placeholder="Email address"
+                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Email address'" required
+                 class="single-input" th:value="${user.email}">
+        </div>
+        <div class="mt-10">
+          <input type="text" name="phone" placeholder="Phone"
+                 onfocus="this.placeholder = ''" onblur="this.placeholder = 'Phone'" required
+                 class="single-input" th:value="${user.phone}">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"><i class="fa fa-thumb-tack" aria-hidden="true"></i></div>
+          <input type="text" name="address" placeholder="Address" required class="single-input" th:value="${user.address}">
+        </div>
+        <div class="input-group-icon mt-10">
+          <div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+          <div class="form-select">
+          <select name="city">
+            <option value="1"  th:text="${user.city}"></option>
+            <option value="Vancouver">Vancouver</option>
+            <option value="Toronto">Toronto</option>
+            <option value="Ottawa">Ottawa</option>
+            <option value="Montreal">Montreal</option>
+          </select>
+        </div>
+    </div>
+    <div class="input-group-icon mt-10">
+      <div class="icon"><i class="fa fa-globe" aria-hidden="true"></i></div>
+      <div class="form-select">
+      <select name="country">
+        <option value="1" th:text="${user.country}">Country</option>
+        <option value="Canada">Canada</option>
+      </select>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>
+</div>
+</div>
+<div th:include="footer :: footer"></div>
+</body>
+</html>
